@@ -13,8 +13,6 @@ It ships with:
 - optional Custom Metadata rules for noise reduction and high-risk highlighting
 - GitHub-ready repository hygiene and open-source documentation
 
-![SafeDelete Explorer mockup](docs/assets/safe-delete-explorer-mockup.png)
-
 ## Why this app exists
 
 Standard delete actions tell users very little about downstream impact. SafeDelete Explorer provides a **preview-first safety layer** by showing:
