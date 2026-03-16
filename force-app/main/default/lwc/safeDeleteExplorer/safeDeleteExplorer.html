@@ -1,0 +1,174 @@
+<template>
+    <lightning-card>
+        <div class="shell">
+            <div class="hero">
+                <div>
+                    <p class="eyebrow">SAFEDELETE EXPLORER</p>
+                    <h1 class="title">Delete impact preview</h1>
+                    <p class="subtitle">
+                        Review child records, cascade paths, and high-risk relationships before delete.
+                    </p>
+                </div>
+                <div class="heroActions">
+                    <lightning-button-icon
+                        icon-name="utility:refresh"
+                        variant="border-filled"
+                        alternative-text="Refresh"
+                        onclick={handleRefresh}
+                        class="heroButton"
+                    ></lightning-button-icon>
+                </div>
+            </div>
+
+            <template if:true={showManualInput}>
+                <div class="manualBox">
+                    <lightning-input
+                        type="text"
+                        label="Record ID"
+                        value={manualRecordId}
+                        onchange={handleManualRecordIdChange}
+                        placeholder="Paste a 15- or 18-character Salesforce record Id"
+                    ></lightning-input>
+                </div>
+            </template>
+
+            <template if:true={errorMessage}>
+                <div class="banner error">{errorMessage}</div>
+            </template>
+
+            <template if:true={isLoading}>
+                <div class="loadingWrap">
+                    <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                </div>
+            </template>
+
+            <template if:true={preview}>
+                <div class={headlineClass}>
+                    <div>
+                        <p class="headlineLabel">Assessment</p>
+                        <h2 class="headlineText">{preview.summary.riskHeadline}</h2>
+                        <p class="headlineMeta">
+                            {preview.objectLabel} · {preview.objectApiName} · {activeRecordId}
+                        </p>
+                    </div>
+                    <template if:true={preview.summary.wasTruncated}>
+                        <div class="pill warning">Some lower-priority relationships were not evaluated</div>
+                    </template>
+                </div>
+
+                <div class="metricGrid">
+                    <div class="metricCard">
+                        <p class="metricLabel">Related children</p>
+                        <p class="metricValue">{preview.summary.totalRelatedChildren}</p>
+                    </div>
+                    <div class="metricCard">
+                        <p class="metricLabel">Cascade paths</p>
+                        <p class="metricValue">{preview.summary.cascadeRelationshipCount}</p>
+                    </div>
+                    <div class="metricCard">
+                        <p class="metricLabel">High-risk rows</p>
+                        <p class="metricValue">{preview.summary.highRiskRelationshipCount}</p>
+                    </div>
+                    <div class="metricCard">
+                        <p class="metricLabel">Restricted paths</p>
+                        <p class="metricValue">{preview.summary.restrictedRelationshipCount}</p>
+                    </div>
+                </div>
+
+                <div class="toolbar">
+                    <lightning-input
+                        type="search"
+                        variant="label-hidden"
+                        placeholder="Filter child objects or categories"
+                        value={filterText}
+                        onchange={handleFilterChange}
+                    ></lightning-input>
+                    <div class="toolbarMeta">
+                        <span>Showing {filteredRelationships.length} of {preview.relationships.length}</span>
+                    </div>
+                </div>
+
+                <div class="tableWrap">
+                    <table class="impactTable">
+                        <thead>
+                            <tr>
+                                <th>Child object</th>
+                                <th>Count</th>
+                                <th>Risk</th>
+                                <th>Category</th>
+                                <th>Cascade</th>
+                                <th>Restricted</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={filteredRelationships} for:item="row">
+                                <tr key={row.rowKey}>
+                                    <td>
+                                        <div class="cellTitle">{row.childObjectLabelPlural}</div>
+                                        <div class="cellMeta">{row.childObjectApiName} · {row.fieldApiName}</div>
+                                    </td>
+                                    <td>
+                                        <span class="countBadge">{row.displayCount}</span>
+                                    </td>
+                                    <td>
+                                        <span class={row.riskClass}>{row.riskLevel}</span>
+                                    </td>
+                                    <td>
+                                        <span class="categoryBadge">{row.category}</span>
+                                    </td>
+                                    <td>
+                                        <template if:true={row.isCascadeDelete}>
+                                            <span class="pill danger">Cascade</span>
+                                        </template>
+                                        <template if:false={row.isCascadeDelete}>
+                                            <span class="pill neutral">No</span>
+                                        </template>
+                                    </td>
+                                    <td>
+                                        <template if:true={row.isRestrictedDelete}>
+                                            <span class="pill warning">Restricted</span>
+                                        </template>
+                                        <template if:false={row.isRestrictedDelete}>
+                                            <span class="pill neutral">No</span>
+                                        </template>
+                                    </td>
+                                    <td>
+                                        <div class="cellStatus">{row.countStatus}</div>
+                                        <template if:true={row.ruleNote}>
+                                            <div class="cellMeta">{row.ruleNote}</div>
+                                        </template>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+
+                <template if:true={showDeleteAction}>
+                    <div class="ackBox">
+                        <lightning-input
+                            type="checkbox"
+                            label="I reviewed the evaluated relationships and understand the potential delete impact."
+                            checked={acknowledged}
+                            onchange={handleAcknowledgeChange}
+                        ></lightning-input>
+                        <div class="ackActions">
+                            <lightning-button
+                                label="Delete record"
+                                title="Delete record"
+                                variant="destructive"
+                                onclick={handleDelete}
+                                disabled={deleteDisabled}
+                            ></lightning-button>
+                        </div>
+                    </div>
+                </template>
+
+                <div class="footerCredit">
+                    Created by Jyotishko Roy · https://orcid.org/0009-0000-2837-4731
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

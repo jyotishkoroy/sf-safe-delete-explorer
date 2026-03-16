@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Behavior__c</fullName>
+    <description>Controls how the child object is treated in SafeDelete Explorer.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Behavior</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Auto</fullName>
+                <default>true</default>
+                <label>Auto</label>
+            </value>
+            <value>
+                <fullName>Include</fullName>
+                <default>false</default>
+                <label>Include</label>
+            </value>
+            <value>
+                <fullName>Exclude</fullName>
+                <default>false</default>
+                <label>Exclude</label>
+            </value>
+            <value>
+                <fullName>HighRisk</fullName>
+                <default>false</default>
+                <label>High Risk</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

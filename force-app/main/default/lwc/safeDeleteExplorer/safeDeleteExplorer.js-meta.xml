@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Safe Delete Explorer</masterLabel>
+    <description>Preview delete blast radius, child counts, and high-risk relationships.</description>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__UtilityBar</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage,lightning__RecordPage,lightning__UtilityBar">
+            <property name="showDeleteAction" type="Boolean" label="Show Delete Action" default="false" description="Enable in-component delete execution after acknowledgment. Off by default for safer deployments." />
+            <property name="showZeroCountRows" type="Boolean" label="Show Zero-Count Rows" default="false" description="Show evaluated relationships even when the related record count is zero." />
+            <property name="maxCountQueries" type="Integer" label="Maximum Count Queries" default="70" description="Upper bound for relationship count evaluation. Higher values inspect more children but consume more Apex queries." />
+            <supportedFormFactors>
+                <supportedFormFactor type="Large" />
+                <supportedFormFactor type="Small" />
+            </supportedFormFactors>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

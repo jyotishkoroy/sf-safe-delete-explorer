@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: SafeDelete Explorer
+message: "If you use this project, please cite it as follows."
+type: software
+authors:
+  - family-names: Roy
+    given-names: Jyotishko
+    orcid: "https://orcid.org/0009-0000-2837-4731"
+abstract: >-
+  A Salesforce DX app that previews child-record blast radius, cascade paths,
+  and high-risk relationships before record deletion.
+repository-code: "https://github.com/<your-account>/safe-delete-explorer"
+license: Apache-2.0
+version: 1.0.0
+date-released: 2026-03-16

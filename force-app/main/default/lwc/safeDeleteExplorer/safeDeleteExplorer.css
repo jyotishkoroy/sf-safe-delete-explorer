@@ -1,0 +1,263 @@
+:host {
+    display: block;
+}
+
+.shell {
+    background: linear-gradient(180deg, #0a0a0c 0%, #101116 100%);
+    color: #f4f7fb;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.eyebrow {
+    margin: 0 0 0.35rem 0;
+    color: #9aa7b8;
+    font-size: 0.75rem;
+    letter-spacing: 0.12rem;
+}
+
+.title {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin: 0.45rem 0 0 0;
+    color: #b8c2cf;
+    max-width: 44rem;
+}
+
+.heroActions,
+.ackActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.manualBox,
+.ackBox,
+.tableWrap,
+.headline,
+.metricCard,
+.toolbar {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.manualBox,
+.ackBox,
+.toolbar,
+.headline {
+    padding: 0.9rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.headline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.headlineSafe {
+    border-color: rgba(69, 198, 149, 0.45);
+}
+
+.headlineWarn {
+    border-color: rgba(255, 190, 92, 0.45);
+}
+
+.headlineCritical {
+    border-color: rgba(255, 108, 108, 0.45);
+}
+
+.headlineLabel {
+    color: #93a0af;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08rem;
+    margin: 0 0 0.25rem 0;
+}
+
+.headlineText {
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+.headlineMeta {
+    color: #9aa7b8;
+    margin: 0.35rem 0 0 0;
+    font-size: 0.84rem;
+    word-break: break-all;
+}
+
+.metricGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.metricCard {
+    padding: 1rem;
+}
+
+.metricLabel {
+    margin: 0 0 0.4rem 0;
+    color: #9aa7b8;
+    font-size: 0.82rem;
+}
+
+.metricValue {
+    margin: 0;
+    font-size: 1.65rem;
+    font-weight: 700;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.toolbarMeta {
+    color: #9aa7b8;
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+.tableWrap {
+    overflow: auto;
+}
+
+.impactTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 52rem;
+}
+
+.impactTable th,
+.impactTable td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    text-align: left;
+    vertical-align: top;
+}
+
+.impactTable th {
+    color: #9aa7b8;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06rem;
+}
+
+.cellTitle {
+    font-weight: 600;
+}
+
+.cellMeta,
+.cellStatus {
+    color: #9aa7b8;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.countBadge,
+.categoryBadge,
+.pill,
+.riskBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.22rem 0.6rem;
+    font-size: 0.76rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.countBadge,
+.categoryBadge,
+.pill.neutral {
+    background: rgba(255, 255, 255, 0.08);
+    color: #dfe7f1;
+}
+
+.pill.warning {
+    background: rgba(255, 190, 92, 0.15);
+    color: #ffd18a;
+}
+
+.pill.danger {
+    background: rgba(255, 108, 108, 0.16);
+    color: #ffadad;
+}
+
+.riskLow {
+    background: rgba(124, 240, 183, 0.14);
+    color: #8ef0c3;
+}
+
+.riskMedium {
+    background: rgba(125, 186, 255, 0.15);
+    color: #a9d0ff;
+}
+
+.riskHigh {
+    background: rgba(255, 190, 92, 0.15);
+    color: #ffd18a;
+}
+
+.riskCritical {
+    background: rgba(255, 108, 108, 0.16);
+    color: #ffadad;
+}
+
+.footerCredit {
+    margin-top: 1rem;
+    color: #748294;
+    font-size: 0.75rem;
+    text-align: right;
+}
+
+.loadingWrap {
+    padding: 2rem 0;
+}
+
+.banner.error {
+    border-radius: 0.9rem;
+    padding: 0.85rem 1rem;
+    background: rgba(255, 108, 108, 0.16);
+    border: 1px solid rgba(255, 108, 108, 0.32);
+    margin-bottom: 1rem;
+    color: #ffd1d1;
+}
+
+@media (max-width: 900px) {
+    .metricGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .toolbar,
+    .headline,
+    .hero {
+        flex-direction: column;
+    }
+
+    .impactTable {
+        min-width: 44rem;
+    }
+}

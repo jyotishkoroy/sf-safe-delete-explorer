@@ -1,0 +1,15 @@
+{
+  "name": "safe-delete-explorer",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Preview the blast radius of record deletion in Salesforce before users click Delete.",
+  "scripts": {
+    "format": "prettier --write "**/*.{cls,html,js,css,json,md,xml,yml,yaml}"",
+    "test:lwc": "sfdx-lwc-jest",
+    "test:apex": "sf apex run test --test-level RunLocalTests --result-format human"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "@salesforce/sfdx-lwc-jest": "^7.2.0"
+  }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>SafeDeleteExplorerService</members>
+        <members>SafeDeleteExplorerServiceTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>safeDeleteExplorer</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>SafeDeleteExplorerUser</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>SafeDeleteRule__mdt</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>SafeDeleteRule.ContentDocumentLink_HighRisk</members>
+        <members>SafeDeleteRule.Event_HighRisk</members>
+        <members>SafeDeleteRule.ProcessInstance_HighRisk</members>
+        <members>SafeDeleteRule.ProcessInstanceWorkitem_HighRisk</members>
+        <members>SafeDeleteRule.Task_HighRisk</members>
+        <name>CustomMetadata</name>
+    </types>
+    <version>66.0</version>
+</Package>
